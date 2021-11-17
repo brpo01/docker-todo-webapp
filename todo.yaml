@@ -16,7 +16,7 @@ services:
     hostname: ${MYSQL_HOSTNAME}
     volumes:
       - todo-db:/var/lib/mysql
-    resart: always
+    restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DB}
       MYSQL_USERNAME: ${MYSQL_USERNAME}
