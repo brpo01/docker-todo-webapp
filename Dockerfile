@@ -1,4 +1,10 @@
 FROM php:7.4.24-apache
 MAINTAINER Rotimi opraise139@gmail.com
 
-RUN 
+# Install docker php dependencies
+RUN docker-php-ext-install mysqli pdo_mysqli
+
+# copy virtualhost config file unto the apache deafult conf in the container
+COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
+COPY start-apache /usr/local/bin
+RUN a2enmod rewrite
