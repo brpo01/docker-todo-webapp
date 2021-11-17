@@ -16,4 +16,6 @@ RUN curl -sS https://getcomposer.org/installer |php && mv composer.phar /usr/loc
 COPY . /var/www
 RUN chown -R www-data:www-data /var/www
 
+EXPOSE 80
+
 CMD ["start-apache"]
