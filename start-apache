@@ -3,10 +3,9 @@ sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf
 sed -i "s/:80/:${PORT:-80}/g" /etc/apache2/sites-enabled/*
 apache2-foreground
 
-composer install --no-plugins --no-scripts
+# composer install --no-plugins --no-scripts
 
-php artisan migrate
-php artisan key:generate
-php artisan db:seed
+# php artisan migrate
+# php artisan key:generate
+# php artisan db:seed
 
-apache2-foreground
