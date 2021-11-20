@@ -9,7 +9,7 @@ services:
       - todo-db
     restart: always
     volumes:
-      - todo-app:/var/www
+      - todo-app:/var/www/html
     ports:
       - ${APP_PORT}:80
   todo-db:
