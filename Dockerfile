@@ -13,7 +13,7 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer |php && mv composer.phar /usr/local/bin/composer
 
 #Copy all files 
-COPY . /var/www
+COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www
 
 EXPOSE 80
