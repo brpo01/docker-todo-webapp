@@ -36,7 +36,7 @@ pipeline {
             steps{
                 script {
                     while(true) {
-                        def response = httpRequest
+                        def response = httpRequest 'http://localhost:8000'
                         if (response.status == 200) {
                             sh "docker push tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
                         }
