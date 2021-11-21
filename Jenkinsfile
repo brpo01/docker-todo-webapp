@@ -14,6 +14,10 @@ pipeline {
             }
         }
 
-        
+        stage('Checkout SCM') {
+            steps {
+                git branch: 'master', url: 'https://github.com/brpo01/docker-todo-webapp.git'
+            }
+        }
     }
 }
