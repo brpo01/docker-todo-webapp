@@ -42,5 +42,12 @@ pipeline {
                 }
             }
         }
+
+        stage('Remove Images') {
+            steps {
+                sh "docker-compose down"
+                sh "docker rmi tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+            }
+        }
     }
 }
