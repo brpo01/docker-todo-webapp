@@ -25,5 +25,11 @@ pipeline {
                 sh "docker build -t tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
             }
         }
+
+        stage('Start the application') {
+            steps {
+                sh "docker-compose up -d"
+            }
+        }
     }
 }
