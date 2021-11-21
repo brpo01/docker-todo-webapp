@@ -38,7 +38,11 @@ pipeline {
                     while(true) {
                         def response = httpRequest 'http://localhost'
                         if (response.status == 200) {
-                            sh "docker push tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+                            withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                                sh "docker push tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+                            }
+                            break 
                         }
                     }
                 }
