@@ -33,11 +33,13 @@ pipeline {
         }
 
         stage('Test endpoint & Push Image to Registry') {
-            script {
-                while(true) {
-                    def response = httpRequest 'http://localhost:8000'
-                    if (response.status == 200) {
-                        sh "docker push tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+            steps{
+                script {
+                    while(true) {
+                        def response = httpRequest 'http://localhost:8000'
+                        if (response.status == 200) {
+                            sh "docker push tobyrotimi/docker-php-todo:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+                        }
                     }
                 }
             }
