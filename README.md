@@ -1,4 +1,4 @@
-# Laravel Quickstart - Basic
+## Laravel Quickstart - Basic
 
 ## Quick Installation
 
